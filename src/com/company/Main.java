@@ -42,7 +42,7 @@ public class Main {
     }
 
     private static void printNDistinctCouponNumbers() {
-        System.out.println("Enter a Number");
+        System.out.println("Enter a Number ");
         int number = scanner.nextInt();
         ArrayList<Integer> couponsList = new ArrayList<>();
         int uniqueMultiple = 10 * number;
