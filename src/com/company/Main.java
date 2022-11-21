@@ -55,7 +55,7 @@ public class Main {
         final int START_WATCH = 1;
         final int STOP_WATCH = 2;
         while (true) {
-            if (option == STOP_WATCH) {
+            if (option != START_WATCH) {
                 System.out.println("Wrong input Enter 1 to start watch");
                 option = scanner.nextInt();
                 continue;
@@ -67,7 +67,7 @@ public class Main {
         System.out.println("Enter 2 to stop the watch");
         option = scanner.nextInt();
         while (true) {
-            if (option == START_WATCH) {
+            if (option != STOP_WATCH) {
                 System.out.println("Wrong input Enter 2 to stop watch");
                 option = scanner.nextInt();
                 continue;
