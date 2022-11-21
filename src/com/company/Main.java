@@ -5,7 +5,6 @@ public class Main {
     static final int BINARY = 2;
 
     public static void main(String[] args) {
-        // write your code here
         System.out.println("Logical Programming");
         toBinary(16);
     }
@@ -15,9 +14,7 @@ public class Main {
         while (decimalNumber > ZERO) {
             binaryRepresentation = (decimalNumber % BINARY) + binaryRepresentation;
             decimalNumber = decimalNumber / BINARY;
-
         }
         System.out.println(binaryRepresentation);
-
     }
 }
