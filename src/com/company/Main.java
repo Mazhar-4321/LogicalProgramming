@@ -46,7 +46,6 @@ public class Main {
         int number = scanner.nextInt();
         ArrayList<Integer> couponsList = new ArrayList<>();
         int uniqueMultiple = 10 * number;
-        System.out.println((int) Math.floor((Math.random() * 10 * 6) % 10 * 6) + 1);
         while (couponsList.size() != number) {
             Integer randomNumber = (int) Math.floor((Math.random() * uniqueMultiple) % uniqueMultiple) + 1;
             if (couponsList.size() == 0 || !couponsList.contains(randomNumber)) {
