@@ -28,25 +28,11 @@ public class Binary {
     }
 
     private void swapNibbles() {
-        String reverse = "";
-        for (int i = binaryRepresentation.length() - 1; i >= ZERO; i--) {
-            reverse += binaryRepresentation.charAt(i);
+        if(binaryRepresentation.length()<8){
+            binaryRepresentation=0+binaryRepresentation;
         }
-        swappedString = binaryRepresentation + binaryRepresentation;
-        int direction = REVERSE;
-        while (swappedString.length() < 8) {
-            if (direction == REVERSE) {
-                swappedString = reverse + swappedString;
-                continue;
-            }
-            swappedString = binaryRepresentation + swappedString;
-
-        }
-        int overflow = swappedString.length() - OCTET;
-        swappedString = swappedString.substring(overflow);
-        System.out.println(swappedString);
-        String nibble1 = swappedString.substring(ZERO, HALF_BIT);
-        String nibble2 = swappedString.substring(HALF_BIT);
+        String nibble1 = binaryRepresentation.substring(ZERO, HALF_BIT);
+        String nibble2 = binaryRepresentation.substring(HALF_BIT);
         swappedString = nibble2 + nibble1;
         System.out.println(swappedString);
     }

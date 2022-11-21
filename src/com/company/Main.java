@@ -6,8 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Logical Programming");
-        toBinary(16);
-        Binary binary= new Binary(4);
+        toBinary(100);
+        Binary binary= new Binary(100);
+
     }
 
     public static void toBinary(int decimalNumber) {
@@ -17,5 +18,16 @@ public class Main {
             decimalNumber = decimalNumber / BINARY;
         }
         System.out.println(binaryRepresentation);
+    }
+    public static void findSqrt(int c){
+        if(c>0){
+            System.out.println("Invalid Input");
+            return;
+        }
+        int t=c;
+        double ans=0;//9
+//       while(Math.abs(t-c/t)>) {
+//           t = t + c / t;
+//       }
     }
 }
