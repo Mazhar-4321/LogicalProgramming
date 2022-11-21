@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -9,6 +10,7 @@ public class Main {
     static final int PERFECT_NUMBER = 2;
     static final int PRIME_NUMBER = 3;
     static final int REVERSE_NUMBER = 4;
+    static final int DISTINCT_COUPON_NUMBER = 5;
     static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -18,6 +20,7 @@ public class Main {
         System.out.println("Enter 2 for Perfect Number");
         System.out.println("Enter 3 for Prime Number");
         System.out.println("Enter 4 for Reversing a Number");
+        System.out.println("Enter 5 for Generating N distinct Coupon Numbers");
         int option = scanner.nextInt();
         switch (option) {
             case FIBONACCI_SERIES:
@@ -32,7 +35,25 @@ public class Main {
             case REVERSE_NUMBER:
                 printReverseOfANumber();
                 break;
+            case DISTINCT_COUPON_NUMBER:
+                printNDistinctCouponNumbers();
+                break;
         }
+    }
+
+    private static void printNDistinctCouponNumbers() {
+        System.out.println("Enter a Number");
+        int number = scanner.nextInt();
+        ArrayList<Integer> couponsList = new ArrayList<>();
+        int uniqueMultiple = 10 * number;
+        System.out.println((int) Math.floor((Math.random() * 10 * 6) % 10 * 6) + 1);
+        while (couponsList.size() != number) {
+            Integer randomNumber = (int) Math.floor((Math.random() * uniqueMultiple) % uniqueMultiple) + 1;
+            if (couponsList.size() == 0 || !couponsList.contains(randomNumber)) {
+                couponsList.add(randomNumber);
+            }
+        }
+        System.out.println(couponsList);
     }
 
     private static void printReverseOfANumber() {
