@@ -8,6 +8,7 @@ public class Main {
     static final int FIBONACCI_SERIES = 1;
     static final int PERFECT_NUMBER = 2;
     static final int PRIME_NUMBER = 3;
+    static final int REVERSE_NUMBER = 4;
     static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class Main {
         System.out.println("Enter 1 for Fibonnaci series");
         System.out.println("Enter 2 for Perfect Number");
         System.out.println("Enter 3 for Prime Number");
+        System.out.println("Enter 4 for Reversing a Number");
         int option = scanner.nextInt();
         switch (option) {
             case FIBONACCI_SERIES:
@@ -27,7 +29,21 @@ public class Main {
             case PRIME_NUMBER:
                 isPrimeNumber();
                 break;
+            case REVERSE_NUMBER:
+                printReverseOfANumber();
+                break;
         }
+    }
+
+    private static void printReverseOfANumber() {
+        System.out.println("Enter a Number");
+        int number = scanner.nextInt();
+        int reverse = 0;
+        while (number > 0) {
+            reverse = reverse * 10 + number % 10;
+            number /= 10;
+        }
+        System.out.println(reverse);
     }
 
     private static void isPrimeNumber() {
