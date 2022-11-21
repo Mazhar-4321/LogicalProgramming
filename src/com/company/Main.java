@@ -7,6 +7,7 @@ public class Main {
     static final int BINARY = 2;
     static final int FIBONACCI_SERIES = 1;
     static final int PERFECT_NUMBER = 2;
+    static final int PRIME_NUMBER = 3;
     static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -14,6 +15,7 @@ public class Main {
         System.out.println("Select Option to proceed");
         System.out.println("Enter 1 for Fibonnaci series");
         System.out.println("Enter 2 for Perfect Number");
+        System.out.println("Enter 3 for Prime Number");
         int option = scanner.nextInt();
         switch (option) {
             case FIBONACCI_SERIES:
@@ -22,7 +24,27 @@ public class Main {
             case PERFECT_NUMBER:
                 isPerfectNumber();
                 break;
+            case PRIME_NUMBER:
+                isPrimeNumber();
+                break;
         }
+    }
+
+    private static void isPrimeNumber() {
+        System.out.println("Enter a Number");
+        int number = scanner.nextInt();
+        if (number < 2) {
+            System.out.println("Invalid Input");
+            return;
+        }
+        int factors = 2;
+        for (int i = 2; i <= number / 2; i += 1) {
+            if (number % i == 0) {
+                System.out.println("Not a Prime");
+                return;
+            }
+        }
+        System.out.println("Prime Number");
     }
 
     private static void isPerfectNumber() {
