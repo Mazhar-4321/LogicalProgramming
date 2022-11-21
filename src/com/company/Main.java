@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +12,8 @@ public class Main {
     static final int PRIME_NUMBER = 3;
     static final int REVERSE_NUMBER = 4;
     static final int DISTINCT_COUPON_NUMBER = 5;
+    static final int STOP_WATCH = 6;
+    static final int SECONDS_CONVERSION_RATE = 1000;
     static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -21,6 +24,7 @@ public class Main {
         System.out.println("Enter 3 for Prime Number");
         System.out.println("Enter 4 for Reversing a Number");
         System.out.println("Enter 5 for Generating N distinct Coupon Numbers");
+        System.out.println("Enter 6 for Stop Watch");
         int option = scanner.nextInt();
         switch (option) {
             case FIBONACCI_SERIES:
@@ -38,7 +42,40 @@ public class Main {
             case DISTINCT_COUPON_NUMBER:
                 printNDistinctCouponNumbers();
                 break;
+            case STOP_WATCH:
+                simulateStopWatch();
+                break;
         }
+    }
+
+    private static void simulateStopWatch() {
+        System.out.println("Enter 1 to Start Watch , 2 to Stop Watch");
+        int option = scanner.nextInt();
+        long elapsedTime = ZERO;
+        final int START_WATCH = 1;
+        final int STOP_WATCH = 2;
+        while (true) {
+            if (option == STOP_WATCH) {
+                System.out.println("Wrong input Enter 1 to start watch");
+                option = scanner.nextInt();
+                continue;
+            }
+            System.out.println("Watch Started");
+            elapsedTime = new Date().getTime();
+            break;
+        }
+        System.out.println("Enter 2 to stop the watch");
+        option = scanner.nextInt();
+        while (true) {
+            if (option == START_WATCH) {
+                System.out.println("Wrong input Enter 2 to stop watch");
+                option = scanner.nextInt();
+                continue;
+            }
+            System.out.println("Watch Stopped");
+            break;
+        }
+        System.out.println((new Date().getTime() - elapsedTime) / SECONDS_CONVERSION_RATE + " seconds from start to stop");
     }
 
     private static void printNDistinctCouponNumbers() {
