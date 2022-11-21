@@ -1,5 +1,6 @@
 package com.company;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -13,8 +14,19 @@ public class Main {
     static final int REVERSE_NUMBER = 4;
     static final int DISTINCT_COUPON_NUMBER = 5;
     static final int STOP_WATCH = 6;
+    static final int VENDING_MACHINE = 7;
     static final int SECONDS_CONVERSION_RATE = 1000;
+    static final int MINIMUM_CURRENCY_EXCHANGE = 1;
+    static final int RUPEES_1000 = 1000;
+    static final int RUPEES_500 = 500;
+    static final int RUPEES_100 = 100;
+    static final int RUPEES_50 = 50;
+    static final int RUPEES_10 = 10;
+    static final int RUPEES_5 = 5;
+    static final int RUPEES_2 = 2;
+    static final int RUPEES_1 = 1;
     static final Scanner scanner = new Scanner(System.in);
+    static ArrayList<Integer> currencyList = new ArrayList<>();
 
     public static void main(String[] args) {
         System.out.println("Logical Programming");
@@ -25,6 +37,7 @@ public class Main {
         System.out.println("Enter 4 for Reversing a Number");
         System.out.println("Enter 5 for Generating N distinct Coupon Numbers");
         System.out.println("Enter 6 for Stop Watch");
+        System.out.println("Enter 7 for Vending Machine");
         int option = scanner.nextInt();
         switch (option) {
             case FIBONACCI_SERIES:
@@ -45,7 +58,73 @@ public class Main {
             case STOP_WATCH:
                 simulateStopWatch();
                 break;
+            case VENDING_MACHINE:
+                printMinimumCurrencyNotes();
+                break;
         }
+    }
+
+    private static void printMinimumCurrencyNotes() {
+        System.out.println("Enter Currency Note for Change");
+        int rupees = scanner.nextInt();
+        if (rupees < MINIMUM_CURRENCY_EXCHANGE) {
+            System.out.println("Invalid Data");
+            return;
+        }
+        recursiveNotesCalculator(rupees);
+        System.out.println(currencyList + "," + currencyList.size());
+    }
+
+    private static void recursiveNotesCalculator(int rupees) {
+        if (rupees > RUPEES_1000 || (rupees >= RUPEES_1000 && currencyList.size() != 0)) {
+            currencyList.add(RUPEES_1000);
+            rupees -= RUPEES_1000;
+            recursiveNotesCalculator(rupees);
+            return;
+        }
+        if (rupees > RUPEES_500 || (rupees >= RUPEES_500 && currencyList.size() != 0)) {
+            currencyList.add(RUPEES_500);
+            rupees -= RUPEES_500;
+            recursiveNotesCalculator(rupees);
+            return;
+        }
+        if (rupees > RUPEES_100 || (rupees >= RUPEES_100 && currencyList.size() != 0)) {
+            currencyList.add(RUPEES_100);
+            rupees -= RUPEES_100;
+            recursiveNotesCalculator(rupees);
+            return;
+        }
+        if (rupees > RUPEES_50 || (rupees >= RUPEES_50 && currencyList.size() != 0)) {
+            currencyList.add(RUPEES_50);
+            rupees -= RUPEES_50;
+            recursiveNotesCalculator(rupees);
+            return;
+        }
+        if (rupees > RUPEES_10 || (rupees >= RUPEES_10 && currencyList.size() != 0)) {
+            currencyList.add(RUPEES_10);
+            rupees -= RUPEES_10;
+            recursiveNotesCalculator(rupees);
+            return;
+        }
+        if (rupees > RUPEES_5 || (rupees >= RUPEES_5 && currencyList.size() != 0)) {
+            currencyList.add(RUPEES_5);
+            rupees -= RUPEES_5;
+            recursiveNotesCalculator(rupees);
+            return;
+        }
+        if (rupees > RUPEES_2 || (rupees >= RUPEES_2 && currencyList.size() != 0)) {
+            currencyList.add(RUPEES_2);
+            rupees -= RUPEES_2;
+            recursiveNotesCalculator(rupees);
+            return;
+        }
+        if (rupees > RUPEES_1 || (rupees >= RUPEES_1 && currencyList.size() != 0)) {
+            currencyList.add(RUPEES_1);
+            rupees -= RUPEES_1;
+            recursiveNotesCalculator(rupees);
+            return;
+        }
+        return;
     }
 
     private static void simulateStopWatch() {
