@@ -15,6 +15,8 @@ public class Main {
     static final int DISTINCT_COUPON_NUMBER = 5;
     static final int STOP_WATCH = 6;
     static final int VENDING_MACHINE = 7;
+    static final int DAY_OF_WEEK = 8;
+    static final int TEMPERATURE_CONVERSION = 9;
     static final int SECONDS_CONVERSION_RATE = 1000;
     static final int MINIMUM_CURRENCY_EXCHANGE = 1;
     static final int RUPEES_1000 = 1000;
@@ -25,6 +27,8 @@ public class Main {
     static final int RUPEES_5 = 5;
     static final int RUPEES_2 = 2;
     static final int RUPEES_1 = 1;
+    static final int FARHENHIET_TO_CELSIUS = 1;
+    static final int CELSIUS_TO_FARHENHIET = 2;
     static final Scanner scanner = new Scanner(System.in);
     static ArrayList<Integer> currencyList = new ArrayList<>();
 
@@ -38,6 +42,8 @@ public class Main {
         System.out.println("Enter 5 for Generating N distinct Coupon Numbers");
         System.out.println("Enter 6 for Stop Watch");
         System.out.println("Enter 7 for Vending Machine");
+        System.out.println("Enter 8 for Day Of Week");
+        System.out.println("Enter 9 for Temperature Conversion");
         int option = scanner.nextInt();
         switch (option) {
             case FIBONACCI_SERIES:
@@ -61,7 +67,58 @@ public class Main {
             case VENDING_MACHINE:
                 printMinimumCurrencyNotes();
                 break;
+            case DAY_OF_WEEK:
+                printDayOfWeek();
+                break;
+            case TEMPERATURE_CONVERSION:
+                convertTemperature();
+                break;
         }
+    }
+
+    private static void convertTemperature() {
+        System.out.println("Enter 1 for Farhenheit to Celsius , 2 for Celsius to Farhenheit");
+        int option = scanner.nextInt();
+        switch (option) {
+            case FARHENHIET_TO_CELSIUS:
+                convertFarhenhietToCelsius();
+                break;
+            case CELSIUS_TO_FARHENHIET:
+                convertCelsiusToFarhenheit();
+                break;
+            default:
+                System.out.println("Invalid Input");
+                break;
+        }
+    }
+
+    private static void convertCelsiusToFarhenheit() {
+        System.out.println("Enter Temperature in Celsius");
+        double celsiusTemperature = scanner.nextDouble();
+        double farhenheitTemperature = (celsiusTemperature * 9.0 / 5) + 32;
+        System.out.println("Farhenheit Temperature=" + farhenheitTemperature);
+    }
+
+    private static void convertFarhenhietToCelsius() {
+        System.out.println("Enter Temperature in Farhenheit");
+        double farhenheitTemperature = scanner.nextDouble();
+        double celsiusTemperature = (farhenheitTemperature - 32) * 5.0 / 9;
+        System.out.println("Celsius Temperature=" + celsiusTemperature);
+    }
+
+    private static void printDayOfWeek() {
+        System.out.println("Enter month");
+        int month = scanner.nextInt();
+        System.out.println("Enter day");
+        int day = scanner.nextInt();
+        System.out.println("Enter Year");
+        int year = scanner.nextInt();
+        int y0 = year - (14 - month) / 12;
+        int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
+        int m0 = month + 12 * ((14 - month) / 12) - 2;
+        int d0 = (day + x + 31 * m0 / 12) % 7;
+        System.out.println(d0);
+
     }
 
     private static void printMinimumCurrencyNotes() {
