@@ -1,6 +1,5 @@
 package com.company;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -20,6 +19,7 @@ public class Main {
     static final int MONTHLY_PAYMENT = 10;
     static final int SQRT = 11;
     static final int TO_BINARY = 12;
+    static final int SWAP_NIBBLES = 13;
     static final int SECONDS_CONVERSION_RATE = 1000;
     static final int MINIMUM_CURRENCY_EXCHANGE = 1;
     static final int RUPEES_1000 = 1000;
@@ -32,7 +32,11 @@ public class Main {
     static final int RUPEES_1 = 1;
     static final int FARHENHIET_TO_CELSIUS = 1;
     static final int CELSIUS_TO_FARHENHIET = 2;
+    static final int HALF_BIT = 4;
+    static final int OCTET = 8;
     static final Scanner scanner = new Scanner(System.in);
+    private static final int ONE = 1;
+    private static final char CHAR_ZERO = '0';
     static ArrayList<Integer> currencyList = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -49,6 +53,8 @@ public class Main {
         System.out.println("Enter 9 for Temperature Conversion");
         System.out.println("Enter 10 for Monthly Payment");
         System.out.println("Enter 11 for Newton Square Root Computation");
+        System.out.println("Enter 12 for Decimal To Binary Conversion");
+        System.out.println("Enter 13 for Swapping Nibbles");
         int option = scanner.nextInt();
         switch (option) {
             case FIBONACCI_SERIES:
@@ -87,7 +93,30 @@ public class Main {
             case TO_BINARY:
                 toBinary();
                 break;
+            case SWAP_NIBBLES:
+                swapNibbles();
+                break;
         }
+    }
+
+    private static void swapNibbles() {
+        String binaryRepresentation = toBinary();
+        if (binaryRepresentation.length() < OCTET) {
+            binaryRepresentation = ZERO + binaryRepresentation;
+        }
+        String nibble1 = binaryRepresentation.substring(ZERO, HALF_BIT);
+        String nibble2 = binaryRepresentation.substring(HALF_BIT);
+        String swappedString = nibble2 + nibble1;
+        System.out.println(swappedString);
+        int decimalRepresentation = ZERO;
+        for (int i = binaryRepresentation.length() - 1, k = ZERO; i >= ZERO; i--, k++) {
+            if (binaryRepresentation.charAt(i) == CHAR_ZERO) {
+                decimalRepresentation = decimalRepresentation + (int) (Math.pow(2, k) * ZERO);
+                continue;
+            }
+            decimalRepresentation = decimalRepresentation + (int) (Math.pow(2, k) * ONE);
+        }
+        System.out.println(decimalRepresentation);
     }
 
     private static void findSqrtUsingNewtonsMethod() {
@@ -326,7 +355,7 @@ public class Main {
         }
     }
 
-    public static void toBinary() {
+    public static String toBinary() {
         System.out.println("Enter A Number");
         int decimalNumber = scanner.nextInt();
         String binaryRepresentation = "";
@@ -335,6 +364,7 @@ public class Main {
             decimalNumber = decimalNumber / BINARY;
         }
         System.out.println(binaryRepresentation);
+        return binaryRepresentation;
     }
 
 }
