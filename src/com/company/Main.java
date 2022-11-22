@@ -117,6 +117,17 @@ public class Main {
             decimalRepresentation = decimalRepresentation + (int) (Math.pow(2, k) * ONE);
         }
         System.out.println(decimalRepresentation);
+        int oneCount=0;
+        for(char x:binaryRepresentation.toCharArray()){
+            if(x!=CHAR_ZERO){
+                oneCount++;
+            }
+        }
+        if(oneCount==1){
+            System.out.println("Number is Power Of 2");
+            return;
+        }
+        System.out.println("Not a Power Of 2");
     }
 
     private static void findSqrtUsingNewtonsMethod() {
