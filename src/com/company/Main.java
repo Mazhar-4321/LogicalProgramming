@@ -18,6 +18,7 @@ public class Main {
     static final int DAY_OF_WEEK = 8;
     static final int TEMPERATURE_CONVERSION = 9;
     static final int MONTHLY_PAYMENT = 10;
+    static final int SQRT = 11;
     static final int SECONDS_CONVERSION_RATE = 1000;
     static final int MINIMUM_CURRENCY_EXCHANGE = 1;
     static final int RUPEES_1000 = 1000;
@@ -45,6 +46,8 @@ public class Main {
         System.out.println("Enter 7 for Vending Machine");
         System.out.println("Enter 8 for Day Of Week");
         System.out.println("Enter 9 for Temperature Conversion");
+        System.out.println("Enter 10 for Monthly Payment");
+        System.out.println("Enter 11 for Newton Square Root Computation");
         int option = scanner.nextInt();
         switch (option) {
             case FIBONACCI_SERIES:
@@ -77,20 +80,38 @@ public class Main {
             case MONTHLY_PAYMENT:
                 calculateMonthlyPayment();
                 break;
+            case SQRT:
+                findSqrtUsingNewtonsMethod();
+                break;
         }
+    }
+
+    private static void findSqrtUsingNewtonsMethod() {
+        System.out.println("Enter a Number");
+        int c = scanner.nextInt();
+        double epsilon = 1.0E-15;
+        double t = c;
+        while (true) {
+         double root= 0.5*(t+c/t);
+         if(Math.abs(root-t)<epsilon){
+             break;
+         }
+            t=root;
+        }
+        System.out.println(t);
     }
 
     private static void calculateMonthlyPayment() {
         System.out.println("Enter P value");
         int p = scanner.nextInt();
         System.out.println("Enter Y value");
-        int y=scanner.nextInt();
+        int y = scanner.nextInt();
         System.out.println("Enter R value");
-        double R=scanner.nextDouble();
-        int n=12*y;
-        double r = R/(12*100);
-        double payment= (p*r)/1-1/(Math.pow(1+r,n));
-        System.out.println("Payment="+payment);
+        double R = scanner.nextDouble();
+        int n = 12 * y;
+        double r = R / (12 * 100);
+        double payment = (p * r) / 1 - 1 / (Math.pow(1 + r, n));
+        System.out.println("Payment=" + payment);
     }
 
     private static void convertTemperature() {
