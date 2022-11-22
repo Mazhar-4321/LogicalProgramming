@@ -19,6 +19,7 @@ public class Main {
     static final int TEMPERATURE_CONVERSION = 9;
     static final int MONTHLY_PAYMENT = 10;
     static final int SQRT = 11;
+    static final int TO_BINARY = 12;
     static final int SECONDS_CONVERSION_RATE = 1000;
     static final int MINIMUM_CURRENCY_EXCHANGE = 1;
     static final int RUPEES_1000 = 1000;
@@ -83,6 +84,9 @@ public class Main {
             case SQRT:
                 findSqrtUsingNewtonsMethod();
                 break;
+            case TO_BINARY:
+                toBinary();
+                break;
         }
     }
 
@@ -92,11 +96,11 @@ public class Main {
         double epsilon = 1.0E-15;
         double t = c;
         while (true) {
-         double root= 0.5*(t+c/t);
-         if(Math.abs(root-t)<epsilon){
-             break;
-         }
-            t=root;
+            double root = 0.5 * (t + c / t);
+            if (Math.abs(root - t) < epsilon) {
+                break;
+            }
+            t = root;
         }
         System.out.println(t);
     }
@@ -322,7 +326,9 @@ public class Main {
         }
     }
 
-    public static void toBinary(int decimalNumber) {
+    public static void toBinary() {
+        System.out.println("Enter A Number");
+        int decimalNumber = scanner.nextInt();
         String binaryRepresentation = "";
         while (decimalNumber > ZERO) {
             binaryRepresentation = (decimalNumber % BINARY) + binaryRepresentation;
