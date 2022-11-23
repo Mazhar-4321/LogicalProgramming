@@ -5,38 +5,39 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
-    static final int ZERO = 0;
-    static final int BINARY = 2;
-    static final int FIBONACCI_SERIES = 1;
-    static final int PERFECT_NUMBER = 2;
-    static final int PRIME_NUMBER = 3;
-    static final int REVERSE_NUMBER = 4;
-    static final int DISTINCT_COUPON_NUMBER = 5;
-    static final int STOP_WATCH = 6;
-    static final int VENDING_MACHINE = 7;
-    static final int DAY_OF_WEEK = 8;
-    static final int TEMPERATURE_CONVERSION = 9;
-    static final int MONTHLY_PAYMENT = 10;
-    static final int SQRT = 11;
-    static final int TO_BINARY = 12;
-    static final int SWAP_NIBBLES = 13;
-    static final int SECONDS_CONVERSION_RATE = 1000;
-    static final int MINIMUM_CURRENCY_EXCHANGE = 1;
-    static final int RUPEES_1000 = 1000;
-    static final int RUPEES_500 = 500;
-    static final int RUPEES_100 = 100;
-    static final int RUPEES_50 = 50;
-    static final int RUPEES_10 = 10;
-    static final int RUPEES_5 = 5;
-    static final int RUPEES_2 = 2;
-    static final int RUPEES_1 = 1;
-    static final int FARHENHIET_TO_CELSIUS = 1;
-    static final int CELSIUS_TO_FARHENHIET = 2;
-    static final int HALF_BIT = 4;
-    static final int OCTET = 8;
-    static final Scanner scanner = new Scanner(System.in);
-    private static final int ONE = 1;
-    private static final char CHAR_ZERO = '0';
+    public static final int SECONDS_CONVERSION_RATE = 1000;
+    public static final int ZERO = 0;
+    public static final int BINARY = 2;
+    public static final int FIBONACCI_SERIES = 1;
+    public static final int PERFECT_NUMBER = 2;
+    public static final int PRIME_NUMBER = 3;
+    public static final int REVERSE_NUMBER = 4;
+    public static final int DISTINCT_COUPON_NUMBER = 5;
+    public static final int STOP_WATCH = 6;
+    public static final int VENDING_MACHINE = 7;
+    public static final int DAY_OF_WEEK = 8;
+    public static final int TEMPERATURE_CONVERSION = 9;
+    public static final int MONTHLY_PAYMENT = 10;
+    public static final int SQRT = 11;
+    public static final int TO_BINARY = 12;
+    public static final int SWAP_NIBBLES = 13;
+    public static final int MINIMUM_CURRENCY_EXCHANGE = 1;
+    public static final int RUPEES_1000 = 1000;
+    public static final int RUPEES_500 = 500;
+    public static final int RUPEES_100 = 100;
+    public static final int RUPEES_50 = 50;
+    public static final int RUPEES_10 = 10;
+    public static final int RUPEES_5 = 5;
+    public static final int RUPEES_2 = 2;
+    public static final int RUPEES_1 = 1;
+    public static final int FARHENHIET_TO_CELSIUS = 1;
+    public static final int CELSIUS_TO_FARHENHIET = 2;
+    public static final int HALF_BIT = 4;
+    public static final int OCTET = 8;
+    public static final Scanner scanner = new Scanner(System.in);
+    public static final int ONE = 1;
+    public static final char CHAR_ZERO = '0';
+    public static final int INT = 1;
     static ArrayList<Integer> currencyList = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -58,49 +59,83 @@ public class Main {
         int option = scanner.nextInt();
         switch (option) {
             case FIBONACCI_SERIES:
-                printFibonacciSeries();
+                System.out.println("Enter a number to print fibonacci series");
+                int number = scanner.nextInt();
+                printFibonacciSeries(number);
                 break;
             case PERFECT_NUMBER:
-                isPerfectNumber();
+                System.out.println("Enter a number to check whether it is perfect or not");
+                number = scanner.nextInt();
+                isPerfectNumber(number);
                 break;
             case PRIME_NUMBER:
-                isPrimeNumber();
+                System.out.println("Enter a Number");
+                number = scanner.nextInt();
+                isPrimeNumber(number);
                 break;
             case REVERSE_NUMBER:
-                printReverseOfANumber();
+                System.out.println("Enter a Number");
+                number = scanner.nextInt();
+                printReverseOfANumber(number);
                 break;
             case DISTINCT_COUPON_NUMBER:
-                printNDistinctCouponNumbers();
+                System.out.println("Enter a Number ");
+                number = scanner.nextInt();
+                printNDistinctCouponNumbers(number);
                 break;
             case STOP_WATCH:
-                simulateStopWatch();
+                System.out.println("Enter 1 to Start Watch , 2 to Stop Watch");
+                number = scanner.nextInt();
+                simulateStopWatch(number);
                 break;
             case VENDING_MACHINE:
-                printMinimumCurrencyNotes();
+                System.out.println("Enter Currency Note for Change");
+                number = scanner.nextInt();
+                printMinimumCurrencyNotes(number);
                 break;
             case DAY_OF_WEEK:
-                printDayOfWeek();
+                System.out.println("Enter month");
+                int month = scanner.nextInt();
+                System.out.println("Enter day");
+                int day = scanner.nextInt();
+                System.out.println("Enter Year");
+                int year = scanner.nextInt();
+                printDayOfWeek(month, day, year);
                 break;
             case TEMPERATURE_CONVERSION:
-                convertTemperature();
+                System.out.println("Enter 1 for Farhenheit to Celsius , 2 for Celsius to Farhenheit");
+                number = scanner.nextInt();
+                convertTemperature(number);
                 break;
             case MONTHLY_PAYMENT:
-                calculateMonthlyPayment();
+                System.out.println("Enter P value");
+                int p = scanner.nextInt();
+                System.out.println("Enter Y value");
+                int y = scanner.nextInt();
+                System.out.println("Enter R value");
+                double R = scanner.nextDouble();
+                calculateMonthlyPayment(p, y, R);
                 break;
             case SQRT:
-                findSqrtUsingNewtonsMethod();
+                System.out.println("Enter a Number");
+                number = scanner.nextInt();
+                findSqrtUsingNewtonsMethod(number);
                 break;
             case TO_BINARY:
-                toBinary();
+                System.out.println("Enter A Number");
+                number = scanner.nextInt();
+                toBinary(number);
                 break;
             case SWAP_NIBBLES:
-                swapNibbles();
+                System.out.println("Enter A Number");
+                number = scanner.nextInt();
+                swapNibbles(number);
                 break;
         }
     }
 
-    private static void swapNibbles() {
-        String binaryRepresentation = toBinary();
+    private static void swapNibbles(int decimalNumber) {
+        String binaryRepresentation = toBinary(decimalNumber);
         if (binaryRepresentation.length() < OCTET) {
             binaryRepresentation = ZERO + binaryRepresentation;
         }
@@ -117,22 +152,20 @@ public class Main {
             decimalRepresentation = decimalRepresentation + (int) (Math.pow(2, k) * ONE);
         }
         System.out.println(decimalRepresentation);
-        int oneCount=0;
-        for(char x:binaryRepresentation.toCharArray()){
-            if(x!=CHAR_ZERO){
+        int oneCount = 0;
+        for (char x : binaryRepresentation.toCharArray()) {
+            if (x != CHAR_ZERO) {
                 oneCount++;
             }
         }
-        if(oneCount==1){
+        if (oneCount == BINARY) {
             System.out.println("Number is Power Of 2");
             return;
         }
         System.out.println("Not a Power Of 2");
     }
 
-    private static void findSqrtUsingNewtonsMethod() {
-        System.out.println("Enter a Number");
-        int c = scanner.nextInt();
+    private static void findSqrtUsingNewtonsMethod(int c) {
         double epsilon = 1.0E-15;
         double t = c;
         while (true) {
@@ -145,28 +178,24 @@ public class Main {
         System.out.println(t);
     }
 
-    private static void calculateMonthlyPayment() {
-        System.out.println("Enter P value");
-        int p = scanner.nextInt();
-        System.out.println("Enter Y value");
-        int y = scanner.nextInt();
-        System.out.println("Enter R value");
-        double R = scanner.nextDouble();
+    private static void calculateMonthlyPayment(int p, int y, double R) {
         int n = 12 * y;
         double r = R / (12 * 100);
         double payment = (p * r) / 1 - 1 / (Math.pow(1 + r, n));
         System.out.println("Payment=" + payment);
     }
 
-    private static void convertTemperature() {
-        System.out.println("Enter 1 for Farhenheit to Celsius , 2 for Celsius to Farhenheit");
-        int option = scanner.nextInt();
+    private static void convertTemperature(int option) {
         switch (option) {
             case FARHENHIET_TO_CELSIUS:
-                convertFarhenhietToCelsius();
+                System.out.println("Enter Temperature in Farhenheit");
+                double farhenheitTemperature = scanner.nextDouble();
+                convertFarhenhietToCelsius(farhenheitTemperature);
                 break;
             case CELSIUS_TO_FARHENHIET:
-                convertCelsiusToFarhenheit();
+                System.out.println("Enter Temperature in Celsius");
+                double celsiusTemperature = scanner.nextDouble();
+                convertCelsiusToFarhenheit(celsiusTemperature);
                 break;
             default:
                 System.out.println("Invalid Input");
@@ -174,27 +203,17 @@ public class Main {
         }
     }
 
-    private static void convertCelsiusToFarhenheit() {
-        System.out.println("Enter Temperature in Celsius");
-        double celsiusTemperature = scanner.nextDouble();
+    private static void convertCelsiusToFarhenheit(double celsiusTemperature) {
         double farhenheitTemperature = (celsiusTemperature * 9.0 / 5) + 32;
         System.out.println("Farhenheit Temperature=" + farhenheitTemperature);
     }
 
-    private static void convertFarhenhietToCelsius() {
-        System.out.println("Enter Temperature in Farhenheit");
-        double farhenheitTemperature = scanner.nextDouble();
+    private static void convertFarhenhietToCelsius(double farhenheitTemperature) {
         double celsiusTemperature = (farhenheitTemperature - 32) * 5.0 / 9;
         System.out.println("Celsius Temperature=" + celsiusTemperature);
     }
 
-    private static void printDayOfWeek() {
-        System.out.println("Enter month");
-        int month = scanner.nextInt();
-        System.out.println("Enter day");
-        int day = scanner.nextInt();
-        System.out.println("Enter Year");
-        int year = scanner.nextInt();
+    private static void printDayOfWeek(int month, int day, int year) {
         int y0 = year - (14 - month) / 12;
         int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
         int m0 = month + 12 * ((14 - month) / 12) - 2;
@@ -203,9 +222,7 @@ public class Main {
 
     }
 
-    private static void printMinimumCurrencyNotes() {
-        System.out.println("Enter Currency Note for Change");
-        int rupees = scanner.nextInt();
+    private static void printMinimumCurrencyNotes(int rupees) {
         if (rupees < MINIMUM_CURRENCY_EXCHANGE) {
             System.out.println("Invalid Data");
             return;
@@ -266,9 +283,7 @@ public class Main {
         return;
     }
 
-    private static void simulateStopWatch() {
-        System.out.println("Enter 1 to Start Watch , 2 to Stop Watch");
-        int option = scanner.nextInt();
+    private static void simulateStopWatch(int option) {
         long elapsedTime = ZERO;
         final int START_WATCH = 1;
         final int STOP_WATCH = 2;
@@ -296,9 +311,7 @@ public class Main {
         System.out.println((new Date().getTime() - elapsedTime) / SECONDS_CONVERSION_RATE + " seconds from start to stop");
     }
 
-    private static void printNDistinctCouponNumbers() {
-        System.out.println("Enter a Number ");
-        int number = scanner.nextInt();
+    private static void printNDistinctCouponNumbers(int number) {
         ArrayList<Integer> couponsList = new ArrayList<>();
         int uniqueMultiple = 10 * number;
         while (couponsList.size() != number) {
@@ -310,9 +323,7 @@ public class Main {
         System.out.println(couponsList);
     }
 
-    private static void printReverseOfANumber() {
-        System.out.println("Enter a Number");
-        int number = scanner.nextInt();
+    private static void printReverseOfANumber(int number) {
         int reverse = 0;
         while (number > 0) {
             reverse = reverse * 10 + number % 10;
@@ -321,9 +332,7 @@ public class Main {
         System.out.println(reverse);
     }
 
-    private static void isPrimeNumber() {
-        System.out.println("Enter a Number");
-        int number = scanner.nextInt();
+    private static void isPrimeNumber(int number) {
         if (number < 2) {
             System.out.println("Invalid Input");
             return;
@@ -338,9 +347,7 @@ public class Main {
         System.out.println("Prime Number");
     }
 
-    private static void isPerfectNumber() {
-        System.out.println("Enter a Number");
-        int number = scanner.nextInt();
+    private static void isPerfectNumber(int number) {
         int i = 1;
         int factorsAggregate = 0;
         while (i <= number / 2) {
@@ -350,9 +357,7 @@ public class Main {
         System.out.println(number == factorsAggregate ? "Perfect Number" : "Not a Perfect Number");
     }
 
-    private static void printFibonacciSeries() {
-        System.out.println("Enter a number to print fibonacci series");
-        int limit = scanner.nextInt();
+    private static void printFibonacciSeries(int limit) {
         int first = 0;
         int second = 1;
         System.out.print(first + " " + second + " ");
@@ -366,9 +371,7 @@ public class Main {
         }
     }
 
-    public static String toBinary() {
-        System.out.println("Enter A Number");
-        int decimalNumber = scanner.nextInt();
+    public static String toBinary(int decimalNumber) {
         String binaryRepresentation = "";
         while (decimalNumber > ZERO) {
             binaryRepresentation = (decimalNumber % BINARY) + binaryRepresentation;
